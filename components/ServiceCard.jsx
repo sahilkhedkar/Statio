@@ -28,11 +28,13 @@ export default function ServiceCard({ service, onRemove }) {
   const hasData = service.history.length > 0;
 
   return (
-    <article className="panel group rounded-[28px] p-6 transition-transform duration-200 hover:-translate-y-0.5">
+    <article className="panel group rounded-[24px] p-4 transition-transform duration-200 hover:-translate-y-0.5 sm:rounded-[28px] sm:p-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-        <div className="space-y-3">
+        <div className="min-w-0 space-y-3">
           <div className="flex flex-wrap items-center gap-3">
-            <h2 className="text-lg font-semibold tracking-tight text-slate-900">{service.url}</h2>
+            <h2 className="min-w-0 break-all text-base font-semibold tracking-tight text-slate-900 sm:text-lg">
+              {service.url}
+            </h2>
             <span
               className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${
                 isUp
@@ -50,28 +52,28 @@ export default function ServiceCard({ service, onRemove }) {
         <button
           type="button"
           onClick={() => onRemove(service.id)}
-          className="inline-flex h-10 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white px-4 text-sm font-medium text-slate-600 transition-colors duration-200 hover:border-red-200 hover:bg-red-50 hover:text-red-600"
+          className="inline-flex h-10 w-full cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white px-4 text-sm font-medium text-slate-600 transition-colors duration-200 hover:border-red-200 hover:bg-red-50 hover:text-red-600 md:w-auto"
         >
           Remove
         </button>
       </div>
 
-      <div className="mt-6 grid gap-4 md:grid-cols-3">
+      <div className="mt-6 grid gap-3 sm:gap-4 md:grid-cols-3">
         <div className="rounded-2xl border border-slate-200/80 bg-white/80 p-4">
           <p className="text-sm text-slate-500">Response time</p>
-          <p className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
+          <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
             {hasData ? `${service.latestResponseTime} ms` : "--"}
           </p>
         </div>
         <div className="rounded-2xl border border-slate-200/80 bg-white/80 p-4">
           <p className="text-sm text-slate-500">Uptime</p>
-          <p className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
+          <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
             {formatUptime(service.history)}
           </p>
         </div>
         <div className="rounded-2xl border border-slate-200/80 bg-white/80 p-4">
           <p className="text-sm text-slate-500">Recent checks</p>
-          <p className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
+          <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
             {service.history.length}
           </p>
         </div>

@@ -212,8 +212,8 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen">
-      <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-10 sm:px-8 lg:px-10">
-        <section className="panel rounded-[32px] px-6 py-8 sm:px-8 sm:py-10">
+      <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-6 sm:px-8 sm:py-10 lg:px-10">
+        <section className="panel rounded-[28px] px-4 py-6 sm:rounded-[32px] sm:px-8 sm:py-10">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl space-y-4">
               <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-slate-500">
@@ -246,20 +246,20 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="grid gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-slate-200 bg-white px-4 py-5">
+            <div className="grid gap-3 sm:grid-cols-3 sm:gap-4">
+              <div className="rounded-2xl border border-slate-200 bg-white px-4 py-4 sm:py-5">
                 <p className="text-sm text-slate-500">Services</p>
                 <p className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
                   {services.length}
                 </p>
               </div>
-              <div className="rounded-2xl border border-slate-200 bg-white px-4 py-5">
+              <div className="rounded-2xl border border-slate-200 bg-white px-4 py-4 sm:py-5">
                 <p className="text-sm text-slate-500">Online</p>
                 <p className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
                   {totalUp}
                 </p>
               </div>
-              <div className="rounded-2xl border border-slate-200 bg-white px-4 py-5">
+              <div className="rounded-2xl border border-slate-200 bg-white px-4 py-4 sm:py-5">
                 <p className="text-sm text-slate-500">Polling</p>
                 <p className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
                   10s
@@ -268,7 +268,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-stretch">
             <label htmlFor="service-url" className="sr-only">
               Website or API URL
             </label>
@@ -284,11 +284,11 @@ export default function HomePage() {
                   setErrorMessage("");
                 }
               }}
-              className="h-14 flex-1 rounded-2xl border border-slate-200 bg-white px-5 text-slate-900 outline-none ring-0 transition placeholder:text-slate-400 focus:border-slate-300 focus:shadow-[0_0_0_4px_rgba(15,23,42,0.05)]"
+              className="h-14 w-full min-w-0 flex-1 rounded-2xl border border-slate-200 bg-white px-4 text-sm text-slate-900 outline-none ring-0 transition placeholder:text-slate-400 focus:border-slate-300 focus:shadow-[0_0_0_4px_rgba(15,23,42,0.05)] sm:px-5 sm:text-base"
             />
             <button
               type="submit"
-              className="inline-flex h-14 cursor-pointer items-center justify-center rounded-2xl bg-slate-950 px-6 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-400"
+              className="inline-flex h-14 w-full shrink-0 cursor-pointer items-center justify-center rounded-2xl bg-slate-950 px-6 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-400 sm:w-auto"
             >
               Add service
             </button>
@@ -310,7 +310,7 @@ export default function HomePage() {
               <ServiceCard key={service.id} service={service} onRemove={handleRemove} />
             ))
           ) : (
-            <div className="panel rounded-[28px] border-dashed p-10 text-center">
+            <div className="panel rounded-[28px] border-dashed px-5 py-8 text-center sm:p-10">
               <h2 className="text-xl font-semibold tracking-tight text-slate-900">
                 No services yet
               </h2>

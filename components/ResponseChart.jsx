@@ -25,9 +25,9 @@ export default function ResponseChart({ history }) {
   }));
 
   return (
-    <div className="chart-shell h-44 w-full rounded-2xl border border-slate-200/80 bg-white/80 p-3">
+    <div className="chart-shell h-40 w-full rounded-2xl border border-slate-200/80 bg-white/80 p-2 sm:h-44 sm:p-3">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data} margin={{ top: 8, right: 8, left: -24, bottom: 0 }}>
+        <LineChart data={data} margin={{ top: 8, right: 4, left: -28, bottom: 0 }}>
           <CartesianGrid vertical={false} stroke="#e2e8f0" strokeDasharray="3 6" />
           <XAxis
             dataKey="label"
